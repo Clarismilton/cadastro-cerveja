@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>by Clarismilton</h:head>
+<h:body>
+	<h:form id="cad_cerveja">
+	    <p:growl id="growl" showDetail="true" sticky="false" life="5000" />  
+	
+		<p:panel header="Cadastro das Melhores Cervejas do Mundo">
+		
+			<h:panelGrid columns="2">
+				
+				<p:outputLabel value="Nome" />
+				<p:inputText value="#{CervejaMB.bean.nome}" />
+
+				<p:outputLabel value="Teor Alcoolico" />
+				<p:inputText  value="#{CervejaMB.bean.teorAlcoolico}" />
+
+				<p:outputLabel value="Nacionalidade" />
+				<p:inputText value="#{CervejaMB.bean.nacionalidade}" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="4">
+
+				<p:commandButton value="Cadastrar" rendered="#{!CervejaMB.exibirBtnAlterar}" action="#{CervejaMB.gravar}"
+					update="cad_cerveja" />
+
+				<p:commandButton value="Salvar" rendered="#{CervejaMB.exibirBtnAlterar}" action="#{CervejaMB.atualizar}"
+					update="cad_cerveja" />
+
+				<p:commandButton value="Excluir" rendered="#{CervejaMB.exibirBtnAlterar}" action="#{CervejaMB.excluir}"
+					update="cad_cerveja" />
+
+				<p:commandButton value="Cancelar" rendered="#{CervejaMB.exibirBtnAlterar}" action="#{CervejaMB.cancelar}"
+					update="cad_cerveja" />
+
+			</h:panelGrid>
+			<p:dataTable var="c" value="#{CervejaMB.list}" selectionMode="single"
+				selection="#{CervejaMB.alterar}" rowKey="#{c.id}">
+
+				<p:ajax event="rowSelect" listener="#{CervejaMB.preparaUpdate}"
+					update="cad_cerveja" />
+
+				<p:column headerText="Nome">#{c.nome}</p:column>
+				<p:column headerText="Nacionalidade">#{c.nacionalidade}</p:column>
+				<p:column headerText="Teor Alcoolico">#{c.teorAlcoolico}</p:column>
+
+				
+				
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
