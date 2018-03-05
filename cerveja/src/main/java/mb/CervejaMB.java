@@ -15,7 +15,7 @@ import controle.CervejaBC;
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "CervejaMB")
 @ViewScoped
- // não falamos de escopo ainda... mas é algo simples, ignorem que explico no sábado
+ // nï¿½o falamos de escopo ainda... mas ï¿½ algo simples, ignorem que explico no sï¿½bado
 public class CervejaMB {
 	
 	private Cerveja bean;
@@ -25,9 +25,9 @@ public class CervejaMB {
 	private Boolean exibirBtnAlterar;
 	
 	/*
-	 * este método init tem uma notação PostConstruct
-	 * isso faz com que o método rode automaticamente apos o construtor ser chamado
-	 * ainda não falamos disso em sala mas vamos abordar isso sábado que vem
+	 * este mï¿½todo init tem uma notaï¿½ï¿½o PostConstruct
+	 * isso faz com que o mï¿½todo rode automaticamente apos o construtor ser chamado
+	 * ainda nï¿½o falamos disso em sala mas vamos abordar isso sï¿½bado que vem
 	 * */
 	
 	@PostConstruct
@@ -80,7 +80,7 @@ public class CervejaMB {
         
         context.addMessage(null,
         		new FacesMessage("Sucesso",  
-        				"Cerveja cadastrada com sucesso!" ) );
+        				"Cadastro realizado com sucesso!" ) );
         
 		
 		this.bean = new Cerveja();
@@ -100,7 +100,7 @@ public class CervejaMB {
         
         context.addMessage(null,
         		new FacesMessage("Sucesso",  
-        				"Cerveja cadastrada com sucesso!" ) );
+        				"Cadastro atualizado com sucesso!" ) );
 
 	}
 	
@@ -113,7 +113,7 @@ public class CervejaMB {
         
         context.addMessage(null,
         		new FacesMessage("Sucesso",  
-        				"Cerveja cadastrada com sucesso!" ) );
+        				"Cadastro excluÃ­do com sucesso!" ) );
 
 	}
 	
